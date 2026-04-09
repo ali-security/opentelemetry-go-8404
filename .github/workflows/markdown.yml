@@ -3,18 +3,13 @@ name: Markdown
 on:
   repository_dispatch:
   workflow_dispatch:
-  schedule:
-  # Everyday at 9:00 AM.
-  - cron: "0 9 * * *"
-
-# Declare default permissions as read only.
 permissions: read-all
 
 jobs:
   lint-markdown:
     permissions:
       issues: write # required for creating issues from markdown lint reports
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
     - name: Checkout Repo
       uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
